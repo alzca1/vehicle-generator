@@ -23,9 +23,9 @@ function fireEvents() {
   submitButton.addEventListener("click", function() {
     createCar(carData);
   });
-  carBrand.forEach(element => {
-    element.addEventListener("click", validator);
-  });
+  // carBrand.forEach(element => {
+  //   element.addEventListener("click", validator);
+  // });
 }
 
 // recolección de datos de formulario inicial
