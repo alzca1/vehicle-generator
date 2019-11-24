@@ -1,0 +1,15 @@
+input:valid{
+    border: 1px solid green;
+}
+
+input:invalid{
+    border: 1px solid red;
+}
+
+
+.carDisplay{
+    margin: 20% auto;
+    border: 1px solid blue;
+    text-align: center;
+    width: 50%; 
+}

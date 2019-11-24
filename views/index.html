@@ -1,9 +1,51 @@
-<head>
-<script src="../models/car.js"></script>
-<script src="../models/wheel.js"></script>
-<script src="../controllers/controller.js"></script>
-</head>
-<body>
-    <p id="carInfo"></p>
-    <button onclick="createCar('1212SDS','SEAT','ROJO')">Create car</button>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+   
+    <div>
+      <form action="#" method="submit">
+        Plate
+        <input id="plate" class="carDetails 0" type="text" name="Plate" minlength="7" maxlength="8" required/>
+        Brand
+        <input id="brand" class="carDetails 1" type="text" name="Brand" minlength="3" maxlength="20" required/>
+        Color
+        <input id="color" class="carDetails 2" type="text" name="Color" minlength="4" maxlength="20" required/>
+        <button id="submitButton" disabled>Submit</button>
+      </form>
+    </div>
+    <div>
+      <form action="#" method="submit">
+        Wheel 0 Brand
+        <input id="wheel0brand" class="brand 0" type="text" name="wheelbrand0" minlength="3" maxlength="20" required/>
+        Wheel 0 Diameter
+        <input id="wheel0diam" class="diameter 0" type="number" name="wheeldiam0" minlength="1" maxlength="3" required/>
+        Wheel 1 Brand
+        <input id="wheel1brand" class="brand 1" type="text" name="wheelbrand1" minlength="3" maxlength="20" required/>
+        Wheel 1 Diameter
+        <input id="wheel1diam" class="diameter 1" type="number" name="wheeldiam1" minlength="1" maxlength="3" required/>
+        Wheel 2 Brand
+        <input id="wheel2brand" class="brand 2" type="text" name="wheelbrand2" minlength="3" maxlength="20" required/>
+        Wheel 2 Diameter
+        <input id="wheel2diam" class="diameter 2" type="number" name="wheeldiam2" minlength="1" maxlength="3" required/>
+        Wheel 3 Brand
+        <input id="wheel3brand" class="brand 3" type="text" name="wheelbrand3" minlength="3" maxlength="20" required/>
+        Wheel 3 Diameter
+        <input id="wheel3diam" class="diameter 3" type="number" name="wheeldiam3" minlength="1" maxlength="3" required/>
+      </form>
+    </div>
+    <div class="carDisplay"></div>
+    <script src="../models/car.js"></script>
+    <script src="../models/wheel.js"></script>
+    <script src="../controllers/controller.js"></script>
+  </body>
+</html>

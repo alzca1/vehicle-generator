@@ -1,10 +1,9 @@
-"use strict";
 var Car = /** @class */ (function () {
-    function Car(plate, color, brand) {
+    function Car(plate, brand, color) {
         this.wheels = new Array();
         this.plate = plate;
-        this.color = color;
         this.brand = brand;
+        this.color = color;
     }
     Car.prototype.addWheel = function (wheel) {
         this.wheels.push(wheel);
