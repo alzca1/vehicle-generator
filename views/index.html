@@ -12,7 +12,7 @@
 
   <body>
    
-    <div>
+    <div class="carform">
       <form>
         Plate
         <input id="plate" class="carDetails 0" type="text" name="Plate" minlength="7" maxlength="8" required/>
@@ -20,27 +20,28 @@
         <input id="brand" class="carDetails 1" type="text" name="Brand" minlength="3" maxlength="20" required/>
         Color
         <input id="color" class="carDetails 2" type="text" name="Color" minlength="4" maxlength="20" required/>
-        <button type="button" id="submitButton" disabled>Submit</button>
+        <button type="button" id="submitCarFormButton" disabled>Submit</button>
       </form>
     </div>
-    <div>
-      <form action="#" method="submit">
+    <div class="wheelform hidden">
+      <form>
         Wheel 0 Brand
-        <input id="wheel0brand" class="brand 0" type="text" name="wheelbrand0" minlength="3" maxlength="20" required/>
+        <input id="wheel0brand" class="wbrand 0" type="text" name="wheelbrand0" minlength="3" maxlength="20" required/>
         Wheel 0 Diameter
-        <input id="wheel0diam" class="diameter 0" type="number" name="wheeldiam0" minlength="1" maxlength="3" required/>
+        <input id="wheel0diam" class="diameter 0" type="number" name="wheeldiam0" min="0.4" max="2" step="0.01"  required/>
         Wheel 1 Brand
-        <input id="wheel1brand" class="brand 1" type="text" name="wheelbrand1" minlength="3" maxlength="20" required/>
+        <input id="wheel1brand" class="wbrand 1" type="text" name="wheelbrand1" minlength="3" maxlength="20" required/>
         Wheel 1 Diameter
-        <input id="wheel1diam" class="diameter 1" type="number" name="wheeldiam1" minlength="1" maxlength="3" required/>
+        <input id="wheel1diam" class="diameter 1" type="number" name="wheeldiam1" min="0.4" max="2" step="0.01" required/>
         Wheel 2 Brand
-        <input id="wheel2brand" class="brand 2" type="text" name="wheelbrand2" minlength="3" maxlength="20" required/>
+        <input id="wheel2brand" class="wbrand 2" type="text" name="wheelbrand2"  minlength="3" maxlength="20" required/>
         Wheel 2 Diameter
-        <input id="wheel2diam" class="diameter 2" type="number" name="wheeldiam2" minlength="1" maxlength="3" required/>
+        <input id="wheel2diam" class="diameter 2" type="number" name="wheeldiam2" min="0.4" max="2" step="0.01" required/>
         Wheel 3 Brand
-        <input id="wheel3brand" class="brand 3" type="text" name="wheelbrand3" minlength="3" maxlength="20" required/>
+        <input id="wheel3brand" class="wbrand 3" type="text" name="wheelbrand3" minlength="3" maxlength="20" required/>
         Wheel 3 Diameter
-        <input id="wheel3diam" class="diameter 3" type="number" name="wheeldiam3" minlength="1" maxlength="3" required/>
+        <input id="wheel3diam" class="diameter 3" type="number" name="wheeldiam3" min="0.4" max="2" step="0.01" required/>
+        <button type="button" id="submitWheelFormButton" disabled>Submit</button>
       </form>
     </div>
     <div class="carDisplay"></div>
