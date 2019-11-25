@@ -7,10 +7,12 @@ var carWDiameter = document.querySelectorAll(".diameter");
 var submitButton = document.querySelector("#submitCarFormButton");
 var submitWheelForm = document.querySelector("#submitWheelFormButton");
 var displayDiv = document.getElementsByClassName("carDisplay");
+var wheelDisplay = document.getElementsByClassName("wheelDisplay");
 // Variable Array con características coche
 var carData = [];
 var carWheelBrand = [];
 var carWheelDiam = [];
+var car;
 // Variables booleanas validador características coche
 var isValidPlate = false;
 var isValidBrand = false;
@@ -41,6 +43,10 @@ function fireWheelForm() {
     });
     carWDiameter.forEach(function (element) {
         element.addEventListener("change", wheelValidator);
+    });
+    submitWheelForm.addEventListener('click', function () {
+        wheelform.classList.toggle('hidden');
+        createWheel(carWheelDiam, carWheelBrand);
     });
 }
 function collectData(classGroup, array) {
@@ -91,6 +97,7 @@ function wheelValidator(event) {
     if (isValidBrand && isValidWheel) {
         submitWheelForm.disabled = false;
         collectData(carDetails, carData);
+        console.log(car);
     }
     else {
         submitWheelForm.disabled = true;
@@ -98,9 +105,20 @@ function wheelValidator(event) {
 }
 // Creación de objeto coche y envío al DOM
 function createCar(array) {
-    var car = new Car(carData[0], carData[1], carData[2]);
+    var tempCar = new Car(carData[0], carData[1], carData[2]);
+    car = tempCar;
     // car.addWheel(new Wheel(2, "SEAT"));
-    var presentation = "#######CAR####### - PLATE: " + car.plate + " --BRAND: " + car.brand + " -- COLOR: " + car.color + " -- WHEELS: " + JSON.stringify(car.wheels);
+    var presentation = "#######CAR####### - PLATE: " + car.plate + " --BRAND: " + car.brand + " -- COLOR: " + car.color;
     displayDiv[0].textContent = presentation;
 }
+function createWheel(arrayWheel, arrayBrand) {
+    for (var i = 0; i < arrayBrand.length; i++) {
+        car.addWheel(new Wheel(arrayWheel[i], arrayBrand[i]));
+    }
+    var wheelPresentation = "WHEELS: " + JSON.stringify(car.wheels);
+    wheelDisplay[0].textContent = wheelPresentation;
+}
+// function createWheels(arrayBrand, arrayWheel){
+//   for(let i = 0; i < ) 
+// }
 document.addEventListener("DOMContentLoaded", fireCarForm);
