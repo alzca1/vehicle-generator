@@ -54,11 +54,9 @@ function loadForm() {
     //validador con switch de campos
     // ###TAREA###: validación matrículas!!!!
     function validator(event) {
-        console.log(" isValidPlate: " + isValidPlate + ", isValidBrand: " + isValidBrand + ", isValidColor: " + isValidColor);
         switch (event.target.id) {
             case "plate":
                 isValidPlate = event.target.checkValidity();
-                console.log();
                 break;
             case "brand":
                 isValidBrand = event.target.checkValidity();
@@ -69,7 +67,6 @@ function loadForm() {
         }
         //Activador botón submit si validadores son todos true;
         if (isValidPlate && isValidBrand && isValidColor) {
-            console.log(submitButton);
             submitButton.disabled = false;
             collectData(carDetails, carData);
         }
@@ -81,7 +78,6 @@ function loadForm() {
         return element.length >= 3;
     }
     function checkValue(element) {
-        console.log(element);
         if (element >= 0.4) {
             if (element <= 2) {
                 return element;
@@ -98,7 +94,6 @@ function loadForm() {
         if (isValidWBrand && isValidWheel) {
             submitWheelForm.disabled = false;
             collectData(carDetails, carData);
-            console.log(car);
         }
         else {
             submitWheelForm.disabled = true;
@@ -110,16 +105,17 @@ function loadForm() {
         var carBrand = document.getElementsByClassName("carBrand");
         var carColor = document.getElementsByClassName("carColor");
         var cardDetailsContainer = document.querySelector("#carDetailsContainer");
-        console.log(carPlate, carBrand, carColor);
         var tempCar = new Car(carData[0], carData[1], carData[2]);
         car = tempCar;
         carPlate[0].textContent = car.plate;
         carBrand[0].textContent = car.brand;
         carColor[0].textContent = car.color;
-        cardDetailsContainer.classList.remove('hidden');
+        cardDetailsContainer.classList.remove("hidden");
     }
     function createWheel(arrayWheel, arrayBrand) {
-        var wheelDisplay = document.getElementsByClassName("wheelDisplay");
+        var wheelButton = document.querySelector(".wheelButton");
+        var wheelCard = document.querySelector("#collapseWheels");
+        console.log("wheel", wheelButton, "wheelcard", wheelCard);
         for (var i = 0; i < arrayBrand.length; i++) {
             car.addWheel(new Wheel(arrayWheel[i], arrayBrand[i]));
         }
@@ -129,6 +125,8 @@ function loadForm() {
             var tempWheel = document.querySelector("#wheel" + i);
             tempWheel.textContent = car.wheels[i].diameter;
         }
+        wheelButton.classList.remove("hidden");
+        wheelCard.classList.remove("hidden");
     }
 }
 document.addEventListener("DOMContentLoaded", loadForm);
