@@ -7,47 +7,314 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-   
-    <div class="carform">
-      <form>
-        Plate
-        <input id="plate" class="carDetails 0" type="text" name="Plate" minlength="7" maxlength="8" required/>
-        Brand
-        <input id="brand" class="carDetails 1" type="text" name="Brand" minlength="3" maxlength="20" required/>
-        Color
-        <input id="color" class="carDetails 2" type="text" name="Color" minlength="4" maxlength="20" required/>
-        <button type="button" id="submitCarFormButton" disabled>Submit</button>
-      </form>
+    <div id="carDetailsContainer" class="container mb-4 ">
+      <div class="card mx-auto bg-light">
+
+        <div class="container">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0q8VYko8KAaEesRQPu3s1PJf7iu401-_GjIGawWO2SA3qCuFE&s"
+            alt=""
+            class="card-img-top mt-3"
+          />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">CAR DETAILS</h5>
+
+          <ul class="list-group">
+            <li class="list-group-item">
+              PLATE:
+              <span
+                class="font-weight-bold text-success float-right carPlate"
+              ></span>
+            </li>
+            <li class="list-group-item">
+              BRAND:
+              <span
+                class="font-weight-bold text-success float-right carBrand"
+              ></span>
+            </li>
+            <li class="list-group-item">
+              COLOR:
+              <span class="font-weight-bold text-success float-right carColor">
+              </span>
+            </li>
+          </ul>
+          <div class="container text-center m-2"><h5>WHEEL SET</h5></div>
+          <div
+            class="d-flex flex-row container mx-auto text-center m-3 text-success"
+            style="font-size: 14px;"
+          >
+            <div class="d-flex flex-column">
+              <div
+                class="container d-flex flex-column mt-3 flex-grow-1 justify-content-around"
+              >
+                <div class=" text-black rounded">
+                  <div class="m-1">
+                    <small>
+                      <strong><span id="wbrand0" class="mx-auto text-success "> </span></strong>
+                      <strong><span id="wheel0" class="mx-auto text-primary ">  </span>
+     </strong>               </small>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="container d-flex flex-column  mt-3 flex-grow-1 justify-content-around "
+              >
+                <div class=" text-black rounded">
+                  <div class="m-1">
+                    <small>
+                        <strong><span id="wbrand1" class="mx-auto text-success "> </span></strong>
+                      <strong><span id="wheel1" class="mx-auto wheel1 text-primary">  </span></strong>
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container mx-auto">
+              <img class="img-fluid" src="../images/wheel_set.jpg" alt="" />
+            </div>
+
+            <div class="d-flex flex-column">
+              <div></div>
+              <div
+                class="container d-flex flex-column mt-3 flex-grow-1 justify-content-around"
+              >
+                <div class=" text-black rounded w-4">
+                  <div class="m-1">
+                    <small>
+                        <strong><span id="wbrand2" class="mx-auto text-success "> </span></strong>
+                      <strong><span id="wheel2" class="mx-auto wheel2 text-primary">  </span></strong>
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="container d-flex flex-column mt-3 flex-grow-1 justify-content-around "
+              >
+                <div class=" text-black rounded">
+                  <div class="m-1">
+                    <small>
+                        <strong><span id="wbrand3" class="mx-auto text-success "> </span></strong>
+                      <strong><span id="wheel3" class="mx-auto wheel3 text-primary">  </span></strong>
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="wheelform hidden">
-      <form>
-        Wheel 0 Brand
-        <input id="wheel0brand" class="wbrand 0" type="text" name="wheelbrand0" minlength="3" maxlength="20" required/>
-        Wheel 0 Diameter
-        <input id="wheel0diam" class="diameter 0" type="number" name="wheeldiam0" min="0.4" max="2" step="0.01"  required/>
-        Wheel 1 Brand
-        <input id="wheel1brand" class="wbrand 1" type="text" name="wheelbrand1" minlength="3" maxlength="20" required/>
-        Wheel 1 Diameter
-        <input id="wheel1diam" class="diameter 1" type="number" name="wheeldiam1" min="0.4" max="2" step="0.01" required/>
-        Wheel 2 Brand
-        <input id="wheel2brand" class="wbrand 2" type="text" name="wheelbrand2"  minlength="3" maxlength="20" required/>
-        Wheel 2 Diameter
-        <input id="wheel2diam" class="diameter 2" type="number" name="wheeldiam2" min="0.4" max="2" step="0.01" required/>
-        Wheel 3 Brand
-        <input id="wheel3brand" class="wbrand 3" type="text" name="wheelbrand3" minlength="3" maxlength="20" required/>
-        Wheel 3 Diameter
-        <input id="wheel3diam" class="diameter 3" type="number" name="wheeldiam3" min="0.4" max="2" step="0.01" required/>
-        <button type="button" id="submitWheelFormButton" disabled>Submit</button>
-      </form>
+
+    <div class="container m-5 mx-auto">
+      <div class="form-group carform">
+        <form>
+          <label for="plate">Plate</label>
+
+          <input
+            id="plate"
+            class="form-control carDetails 0"
+            type="text"
+            name="Plate"
+            minlength="7"
+            maxlength="8"
+            required
+          />
+          <label for="brand">Brand</label>
+          <input
+            id="brand"
+            class="form-control carDetails 1"
+            type="text"
+            name="Brand"
+            minlength="3"
+            maxlength="20"
+            required
+          />
+          <label for="color">Color</label>
+          <input
+            id="color"
+            class="form-control carDetails 2"
+            type="text"
+            name="Color"
+            minlength="4"
+            maxlength="20"
+            required
+          />
+          <button
+            class="btn btn-primary mt-4"
+            type="button"
+            id="submitCarFormButton"
+            disabled
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
-    <div class="carDisplay"></div>
+    <div class="container m-5 mx-auto">
+      <div class="form-group wheelform hidden">
+        <!-- Meter hidden-->
+        <!-- ############ WHEEL 1 ############ -->
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="wheel0brand">Wheel 1 Brand</label>
+              <input
+                id="wheel0brand"
+                class="form-control wbrand 0"
+                type="text"
+                name="wheelbrand0"
+                minlength="3"
+                maxlength="20"
+                required
+              />
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="wheel0diam">Wheel 1 Diameter</label>
+              <input
+                id="wheel0diam"
+                class="form-control diameter 0"
+                type="number"
+                name="wheeldiam0"
+                min="0.4"
+                max="2"
+                step="0.01"
+                required
+              />
+            </div>
+          </div>
+          <!-- ############ WHEEL 2 ############ -->
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="wheel0brand">Wheel 2 Brand</label>
+              <input
+                id="wheel1brand"
+                class="form-control wbrand 1"
+                type="text"
+                name="wheelbrand1"
+                minlength="3"
+                maxlength="20"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="wheel0diam">Wheel 2 Diameter</label>
+              <input
+                id="wheel1diam"
+                class="form-control diameter 1"
+                type="number"
+                name="wheeldiam1"
+                min="0.4"
+                max="2"
+                step="0.01"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- ############ WHEEL 3 ############ -->
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="wheel0brand">Wheel 3 Brand</label>
+              <input
+                id="wheel2brand"
+                class="form-control wbrand 2"
+                type="text"
+                name="wheelbrand2"
+                minlength="3"
+                maxlength="20"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="wheel0diam">Wheel 3 Diameter</label>
+              <input
+                id="wheel2diam"
+                class="form-control diameter 2"
+                type="number"
+                name="wheeldiam2"
+                min="0.4"
+                max="2"
+                step="0.01"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- ############ WHEEL 4 ############ -->
+          <div class=""></div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="wheel0brand">Wheel 4 Brand</label>
+              <input
+                id="wheel3brand"
+                class="form-control wbrand 3"
+                type="text"
+                name="wheelbrand3"
+                minlength="3"
+                maxlength="20"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="wheel0diam">Wheel 4 Diameter</label>
+              <input
+                id="wheel3diam"
+                class="form-control diameter 3"
+                type="number"
+                name="wheeldiam3"
+                min="0.4"
+                max="2"
+                step="0.01"
+                required
+              />
+            </div>
+          </div>
+          <button
+            class="btn btn-primary"
+            type="button"
+            id="submitWheelFormButton"
+            disabled
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- <div class=" container carDisplay"></div> -->
     <div class="wheelDisplay"></div>
     <script src="../models/car.js"></script>
     <script src="../models/wheel.js"></script>
     <script src="../controllers/controller.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
