@@ -38,7 +38,10 @@ function loadForm() {
         wheelform.classList.toggle("hidden");
         // se añaden los listeners para marca ruedas y diametros
         carWBrand.forEach(function (element) {
-            element.addEventListener("keyup", wheelValidator);
+            element.addEventListener("keyup", dataValidator);
+        });
+        carWDiameter.forEach(function (element) {
+            element.addEventListener("keyup", dataValidator);
         });
         carWDiameter.forEach(function (element) {
             element.addEventListener("change", wheelValidator);
@@ -60,10 +63,8 @@ function loadForm() {
         var smallAlert = event.srcElement.nextSibling.nextSibling;
         switch (event.target.id) {
             case "plate":
-                var reg = /^[0-9]{4}[a-zA-Z]{3}$/
-                
-                isValidPlate = reg.test(event.target.value)
-                console.log(event.srcElement.nextSibling.nextSibling.classList);
+                var reg = /^[0-9]{4}[a-zA-Z]{3}$/;
+                isValidPlate = reg.test(event.target.value);
                 !isValidPlate
                     ? smallAlert.classList.remove("hidden")
                     : smallAlert.classList.add("hidden");
@@ -100,11 +101,13 @@ function loadForm() {
             }
         }
     }
-    function brandValidator(event) {
+    function dataValidator(event) {
         var smallAlert = event.srcElement.nextSibling.nextSibling;
-        var isValidWBrand = false;
-        collectData(carWBrand, carWheelBrand);
-        isValidWBrand = carWheelBrand.every(checkLength);
+        var isValidData = false;
+        isValidData = event.target.checkValidity();
+        !isValidData
+            ? smallAlert.classList.remove("hidden")
+            : smallAlert.classList.add("hidden");
     }
     function wheelValidator(event) {
         var isValidWBrand = false;
@@ -114,7 +117,7 @@ function loadForm() {
         collectData(carWDiameter, carWheelDiam);
         isValidWBrand = carWheelBrand.every(checkLength);
         isValidWheel = carWheelDiam.every(checkValue);
-        console.log(event);
+        
         if (isValidWBrand && isValidWheel) {
             submitWheelForm.disabled = false;
             collectData(carDetails, carData);
@@ -139,7 +142,6 @@ function loadForm() {
     function createWheel(arrayWheel, arrayBrand) {
         var wheelButton = document.querySelector(".wheelButton");
         var wheelCard = document.querySelector("#collapseWheels");
-        console.log("wheel", wheelButton, "wheelcard", wheelCard);
         for (var i = 0; i < arrayBrand.length; i++) {
             car.addWheel(new Wheel(arrayWheel[i], arrayBrand[i]));
         }

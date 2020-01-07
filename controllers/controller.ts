@@ -46,7 +46,10 @@ function loadForm() {
 
     // se añaden los listeners para marca ruedas y diametros
     carWBrand.forEach(element => {
-      element.addEventListener("keyup", wheelValidator);
+      element.addEventListener("keyup", dataValidator);
+    });
+    carWDiameter.forEach(element => {
+      element.addEventListener("keyup", dataValidator);
     });
     carWDiameter.forEach(element => {
       element.addEventListener("change", wheelValidator);
@@ -71,7 +74,9 @@ function loadForm() {
 
     switch (event.target.id) {
       case "plate":
-        isValidPlate = event.target.checkValidity();
+        const reg = /^[0-9]{4}[a-zA-Z]{3}$/;
+
+        isValidPlate = reg.test(event.target.value);
         console.log(event.srcElement.nextSibling.nextSibling.classList);
         !isValidPlate
           ? smallAlert.classList.remove("hidden")
@@ -92,6 +97,7 @@ function loadForm() {
           : smallAlert.classList.add("hidden");
 
         break;
+        
     }
 
     //Activador botón submit si validadores son todos true;
@@ -116,12 +122,13 @@ function loadForm() {
     }
   }
 
-  function brandValidator(event: any) {
+  function dataValidator(event: any) {
     let smallAlert = event.srcElement.nextSibling.nextSibling;
-    let isValidWBrand: boolean = false;
-    collectData(carWBrand, carWheelBrand);
-    isValidWBrand = carWheelBrand.every(checkLength);
-
+    let isValidData: boolean = false;
+    isValidData = event.target.checkValidity()
+    !isValidData
+          ? smallAlert.classList.remove("hidden")
+          : smallAlert.classList.add("hidden");
 
   }
   function wheelValidator(event: any) {
