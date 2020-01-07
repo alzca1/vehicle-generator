@@ -6,6 +6,7 @@ function loadForm() {
     var carWDiameter = document.querySelectorAll(".diameter");
     var submitButton = document.querySelector("#submitCarFormButton");
     var submitWheelForm = document.querySelector("#submitWheelFormButton");
+    // Variables booleanas de matricula, marca y color
     var isValidPlate = false;
     var isValidBrand = false;
     var isValidColor = false;
@@ -13,6 +14,9 @@ function loadForm() {
     var carData = [];
     var carWheelBrand = [];
     var carWheelDiam = [];
+    // Activamos la función inicial para poner todo en marcha. Detalles bajo estas líneas ->
+    fireCarForm();
+    // Con esta función se activa el primer formulario y se añaden los listeners a campos y botón submit
     function fireCarForm() {
         carDetails.forEach(function (element) {
             element.addEventListener("keyup", validator);
@@ -27,7 +31,6 @@ function loadForm() {
             fireWheelForm();
         });
     }
-    fireCarForm();
     function fireWheelForm() {
         var carform = document.querySelector(".carform");
         var wheelform = document.querySelector(".wheelform");
@@ -54,15 +57,28 @@ function loadForm() {
     //validador con switch de campos
     // ###TAREA###: validación matrículas!!!!
     function validator(event) {
+        var smallAlert = event.srcElement.nextSibling.nextSibling;
         switch (event.target.id) {
             case "plate":
-                isValidPlate = event.target.checkValidity();
+                var reg = /^[0-9]{4}[a-zA-Z]{3}$/
+                
+                isValidPlate = reg.test(event.target.value)
+                console.log(event.srcElement.nextSibling.nextSibling.classList);
+                !isValidPlate
+                    ? smallAlert.classList.remove("hidden")
+                    : smallAlert.classList.add("hidden");
                 break;
             case "brand":
                 isValidBrand = event.target.checkValidity();
+                !isValidBrand
+                    ? smallAlert.classList.remove("hidden")
+                    : smallAlert.classList.add("hidden");
                 break;
             case "color":
                 isValidColor = event.target.checkValidity();
+                !isValidColor
+                    ? smallAlert.classList.remove("hidden")
+                    : smallAlert.classList.add("hidden");
                 break;
         }
         //Activador botón submit si validadores son todos true;
@@ -84,13 +100,21 @@ function loadForm() {
             }
         }
     }
+    function brandValidator(event) {
+        var smallAlert = event.srcElement.nextSibling.nextSibling;
+        var isValidWBrand = false;
+        collectData(carWBrand, carWheelBrand);
+        isValidWBrand = carWheelBrand.every(checkLength);
+    }
     function wheelValidator(event) {
         var isValidWBrand = false;
         var isValidWheel = false;
+        var smallAlert = event.srcElement.nextSibling.nextSibling;
         collectData(carWBrand, carWheelBrand);
         collectData(carWDiameter, carWheelDiam);
         isValidWBrand = carWheelBrand.every(checkLength);
         isValidWheel = carWheelDiam.every(checkValue);
+        console.log(event);
         if (isValidWBrand && isValidWheel) {
             submitWheelForm.disabled = false;
             collectData(carDetails, carData);

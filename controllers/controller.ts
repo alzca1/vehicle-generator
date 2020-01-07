@@ -1,4 +1,4 @@
-let car;
+let car: any;
 
 function loadForm() {
   //Selección elementos DOM
@@ -9,6 +9,7 @@ function loadForm() {
   const submitButton = document.querySelector("#submitCarFormButton");
   const submitWheelForm = document.querySelector("#submitWheelFormButton");
 
+  // Variables booleanas de matricula, marca y color
   let isValidPlate: boolean = false;
   let isValidBrand: boolean = false;
   let isValidColor: boolean = false;
@@ -18,6 +19,10 @@ function loadForm() {
   let carWheelBrand: string[] = [];
   let carWheelDiam: string[] = [];
 
+  // Activamos la función inicial para poner todo en marcha. Detalles bajo estas líneas ->
+  fireCarForm();
+
+  // Con esta función se activa el primer formulario y se añaden los listeners a campos y botón submit
   function fireCarForm() {
     carDetails.forEach(element => {
       element.addEventListener("keyup", validator);
@@ -32,8 +37,6 @@ function loadForm() {
       fireWheelForm();
     });
   }
-
-  fireCarForm();
 
   function fireWheelForm() {
     const carform = document.querySelector(".carform");
@@ -64,16 +67,30 @@ function loadForm() {
   //validador con switch de campos
   // ###TAREA###: validación matrículas!!!!
   function validator(event: any) {
+    let smallAlert = event.srcElement.nextSibling.nextSibling;
+
     switch (event.target.id) {
       case "plate":
         isValidPlate = event.target.checkValidity();
+        console.log(event.srcElement.nextSibling.nextSibling.classList);
+        !isValidPlate
+          ? smallAlert.classList.remove("hidden")
+          : smallAlert.classList.add("hidden");
 
         break;
       case "brand":
         isValidBrand = event.target.checkValidity();
+        !isValidBrand
+          ? smallAlert.classList.remove("hidden")
+          : smallAlert.classList.add("hidden");
+
         break;
       case "color":
         isValidColor = event.target.checkValidity();
+        !isValidColor
+          ? smallAlert.classList.remove("hidden")
+          : smallAlert.classList.add("hidden");
+
         break;
     }
 
@@ -99,14 +116,26 @@ function loadForm() {
     }
   }
 
+  function brandValidator(event: any) {
+    let smallAlert = event.srcElement.nextSibling.nextSibling;
+    let isValidWBrand: boolean = false;
+    collectData(carWBrand, carWheelBrand);
+    isValidWBrand = carWheelBrand.every(checkLength);
+
+
+  }
   function wheelValidator(event: any) {
     let isValidWBrand: boolean = false;
     let isValidWheel: boolean = false;
+    let smallAlert = event.srcElement.nextSibling.nextSibling;
 
     collectData(carWBrand, carWheelBrand);
     collectData(carWDiameter, carWheelDiam);
+
     isValidWBrand = carWheelBrand.every(checkLength);
     isValidWheel = carWheelDiam.every(checkValue);
+
+    console.log(event);
 
     if (isValidWBrand && isValidWheel) {
       submitWheelForm.disabled = false;
@@ -134,7 +163,6 @@ function loadForm() {
   }
 
   function createWheel(arrayWheel, arrayBrand) {
-   
     const wheelButton = document.querySelector(".wheelButton");
     const wheelCard = document.querySelector("#collapseWheels");
 
@@ -156,3 +184,5 @@ function loadForm() {
 }
 
 document.addEventListener("DOMContentLoaded", loadForm);
+
+

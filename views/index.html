@@ -173,36 +173,45 @@
       <div class="form-group carform">
         <form>
           <label for="plate">Plate</label>
-
-          <input
-            id="plate"
-            class="form-control carDetails 0"
-            type="text"
-            name="Plate"
-            minlength="7"
-            maxlength="8"
-            required
-          />
+          <div>
+            <input
+              id="plate"
+              class="form-control carDetails 0"
+              type="text"
+              name="Plate"
+              minlength="7"
+              maxlength="8"
+              required
+            />
+            <small class="text-danger hidden" >Plate must be valid and contain at least 7 characters!</small>
+          </div>
           <label for="brand">Brand</label>
-          <input
-            id="brand"
-            class="form-control carDetails 1"
-            type="text"
-            name="Brand"
-            minlength="3"
-            maxlength="20"
-            required
-          />
+          <div>
+
+            <input
+              id="brand"
+              class="form-control carDetails 1"
+              type="text"
+              name="Brand"
+              minlength="3"
+              maxlength="20"
+              required
+            />
+            <small class="text-danger hidden" >Brand must be valid and contain at least 3 characters!</small>
+          </div>
           <label for="color">Color</label>
-          <input
-            id="color"
-            class="form-control carDetails 2"
-            type="text"
-            name="Color"
-            minlength="4"
-            maxlength="20"
-            required
-          />
+          <div>
+            <input
+              id="color"
+              class="form-control carDetails 2"
+              type="text"
+              name="Color"
+              minlength="4"
+              maxlength="20"
+              required
+            />
+            <small class="text-danger hidden" >Color must be valid and contain at least 3 characters!</small>
+          </div>
           <button
             class="btn btn-primary mt-4"
             type="button"
@@ -218,19 +227,23 @@
       <div class="form-group wheelform hidden">
         <!-- Meter hidden-->
         <!-- ############ WHEEL 1 ############ -->
-        <form>
+        <form class="needs-validation">
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="wheel0brand">Wheel 1 Brand</label>
-              <input
-                id="wheel0brand"
-                class="form-control wbrand 0"
-                type="text"
-                name="wheelbrand0"
-                minlength="3"
-                maxlength="20"
-                required
-              />
+              <div>
+                <input
+                  id="wheel0brand"
+                  class="form-control wbrand 0"
+                  type="text"
+                  name="wheelbrand0"
+                  minlength="3"
+                  maxlength="20"
+                  required
+                />
+                <small class="text-danger hidden" >Brand must be valid and contain at least 3 characters!</small>
+
+              </div>
             </div>
 
             <div class="form-group col-md-6">
@@ -252,15 +265,18 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="wheel0brand">Wheel 2 Brand</label>
-              <input
-                id="wheel1brand"
-                class="form-control wbrand 1"
-                type="text"
-                name="wheelbrand1"
-                minlength="3"
-                maxlength="20"
-                required
-              />
+              <div>
+                <input
+                  id="wheel1brand"
+                  class="form-control wbrand 1"
+                  type="text"
+                  name="wheelbrand1"
+                  minlength="3"
+                  maxlength="20"
+                  required
+                />
+                <small class="text-danger hidden" >Brand must be valid and contain at least 3 characters!</small>
+              </div>
             </div>
             <div class="form-group col-md-6">
               <label for="wheel0diam">Wheel 2 Diameter</label>
@@ -282,15 +298,18 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="wheel0brand">Wheel 3 Brand</label>
-              <input
-                id="wheel2brand"
-                class="form-control wbrand 2"
-                type="text"
-                name="wheelbrand2"
-                minlength="3"
-                maxlength="20"
-                required
-              />
+              <div>
+                <input
+                  id="wheel2brand"
+                  class="form-control wbrand 2"
+                  type="text"
+                  name="wheelbrand2"
+                  minlength="3"
+                  maxlength="20"
+                  required
+                />
+                <small class="text-danger hidden" >Brand must be valid and contain at least 3 characters!</small>
+              </div>
             </div>
             <div class="form-group col-md-6">
               <label for="wheel0diam">Wheel 3 Diameter</label>
@@ -312,15 +331,19 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="wheel0brand">Wheel 4 Brand</label>
-              <input
-                id="wheel3brand"
-                class="form-control wbrand 3"
-                type="text"
-                name="wheelbrand3"
-                minlength="3"
-                maxlength="20"
-                required
-              />
+              <div>
+                <input
+                  id="wheel3brand"
+                  class="form-control wbrand 3"
+                  type="text"
+                  name="wheelbrand3"
+                  minlength="3"
+                  maxlength="20"
+                  required
+                />
+                <small class="text-danger hidden" >Brand must be valid and contain at least 3 characters!</small>
+
+              </div>
             </div>
             <div class="form-group col-md-6">
               <label for="wheel0diam">Wheel 4 Diameter</label>
@@ -344,7 +367,7 @@
           >
             Submit
           </button>
-        </form>
+        </form cla>
       </div>
     </div>
 
